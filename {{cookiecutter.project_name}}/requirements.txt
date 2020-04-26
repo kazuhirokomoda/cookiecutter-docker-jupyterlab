@@ -1,0 +1,52 @@
+awscli
+click
+Sphinx
+flake8
+{{ cookiecutter.formatter_type }}
+
+# Jupyter
+jupyterlab
+jupytext
+# TODO: "WARNING | The extension "@jupyterlab/git" is outdated."
+# https://github.com/jupyterlab/jupyterlab-git/issues/602
+jupyterlab-git~=0.20.0rc0
+
+# setuptools
+setuptools>=41.0.0
+
+# TensorFlow
+tensorflow~=2.1.0
+tensorboard~=2.1.0
+six>=1.12.0
+
+# PyTorch
+torch~=1.5.0
+torchvision~=0.6.0
+
+# ML
+pandas
+scikit-learn
+
+# Image processing
+opencv-python
+Pillow
+scikit-image
+
+# Language
+mecab-python3
+japanize-matplotlib==1.0.4
+
+# Visualization
+matplotlib
+seaborn
+
+# Test framework
+nose
+
+# Web
+Flask
+Flask-API
+requests
+
+# Misc
+tqdm

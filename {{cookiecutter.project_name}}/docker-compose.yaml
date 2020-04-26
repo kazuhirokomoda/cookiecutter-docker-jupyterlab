@@ -1,0 +1,23 @@
+version: '2.4'
+
+services:
+  {{cookiecutter.project_name}}:
+    {% if cookiecutter.use_nvidia_docker == 'yes' %}
+    # TODO: not yet tested on GPU device, resulting in "Unknown runtime specified nvidia"
+    runtime: nvidia
+    {% endif %}
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      args:
+        HOST_UID: ${HOST_UID}
+    #user: "ubuntu"
+    command: bash /work/docker/docker-entrypoint.sh
+    container_name: {{cookiecutter.project_name}}
+    ports:
+      - "${JUPYTER_PORT}:8888"
+      - "${TFBOARD_PORT}:6006"
+    volumes:
+      - .:/work
+    env_file:
+      - .env
