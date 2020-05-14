@@ -25,3 +25,4 @@ Access following URLs from web browser:
 
 - (JupyterLab) http://localhost:{{ cookiecutter.jupyter_port }}
 - (TensorBoard) http://localhost:{{ cookiecutter.tensorboard_port }}
+- (commuter) http://localhost:{{ cookiecutter.commuter_port }}

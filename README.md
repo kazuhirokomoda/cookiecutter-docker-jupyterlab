@@ -4,9 +4,10 @@ A [cookiecutter](https://github.com/cookiecutter/cookiecutter) template to creat
 
 The resulting environment enables users to:
 
-- install Python libraries via ```pip```
-- use ```docker-compose``` to allow running multiple containers in one go
-- use ```JupyterLab``` and  ```TensorBoard``` from their local web browser
+- install Python libraries via `pip`
+- use `docker-compose` to allow running multiple containers in one go
+- use `JupyterLab` and `TensorBoard` from their local web browser
+- use `Commuter` to browse notebooks
 
 ## Related Work
 
@@ -20,10 +21,11 @@ The resulting environment enables users to:
 - `author_name`: your name
 - `project_name`: your project name
 - `project_description`: description of your project (this will be inserted to `README.md`)
-- `use_nvidia_docker`: whether to use ```nvidia-docker``` or not
+- `use_nvidia_docker`: whether to use `nvidia-docker` or not
 - `formatter_type`: Python formatter
 - `jupyter_port`: a port to access JupyterLab running on a container
 - `tensorboard_port`: a port to access TensorBoard running on a container
+- `commuter_port`: a port to access [commuter](https://github.com/nteract/commuter) running on a container
 
 ### Generate project and launch Docker container
 
@@ -40,3 +42,4 @@ Access following URLs from web browser:
 
 - (JupyterLab) http://localhost:<jupyter_port>
 - (TensorBoard) http://localhost:<tensorboard_port>
+- (commuter) http://localhost:<commuter_port>
