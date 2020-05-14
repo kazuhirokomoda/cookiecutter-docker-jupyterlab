@@ -6,6 +6,7 @@ HOST_UID={uid}
 HOST_GID={gid}
 JUPYTER_PORT={{ cookiecutter.jupyter_port }}
 TFBOARD_PORT={{ cookiecutter.tensorboard_port }}
+COMMUTER_PORT={{ cookiecutter.commuter_port }}
 {% if cookiecutter.use_nvidia_docker == 'yes' %}
 # TODO: not yet tested on GPU device
 NVIDIA_VISIBLE_DEVICES=0

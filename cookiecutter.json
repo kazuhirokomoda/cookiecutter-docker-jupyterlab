@@ -1,9 +1,10 @@
 {
-    "project_name": "awesome_deeplearning_project",
-    "project_description": "project_description",
-    "author_name": "author_name",
-    "use_nvidia_docker": ["no", "yes"],
-    "formatter_type": ["black", "autopep8", "yapf"],
-    "jupyter_port": 9000,
-    "tensorboard_port": 9001
+  "project_name": "awesome_deeplearning_project",
+  "project_description": "project_description",
+  "author_name": "author_name",
+  "use_nvidia_docker": ["no", "yes"],
+  "formatter_type": ["black", "autopep8", "yapf"],
+  "jupyter_port": 9000,
+  "tensorboard_port": 9001,
+  "commuter_port": 14000
 }

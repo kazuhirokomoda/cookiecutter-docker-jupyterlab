@@ -9,7 +9,11 @@ jupyterlab
 jupytext
 # TODO: "WARNING | The extension "@jupyterlab/git" is outdated."
 # https://github.com/jupyterlab/jupyterlab-git/issues/602
-jupyterlab-git~=0.20.0rc0
+jupyterlab-git~=0.20.0
+
+# Netflix https://netflixtechblog.com/notebook-innovation-591ee3221233
+nteract_on_jupyter
+papermill
 
 # setuptools
 setuptools>=41.0.0

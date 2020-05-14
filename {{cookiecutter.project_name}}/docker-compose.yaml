@@ -1,7 +1,7 @@
 version: '2.4'
 
 services:
-  {{cookiecutter.project_name}}:
+  {{cookiecutter.project_name}}-jupyterlab-tensorboard:
     {% if cookiecutter.use_nvidia_docker == 'yes' %}
     # TODO: not yet tested on GPU device, resulting in "Unknown runtime specified nvidia"
     runtime: nvidia
@@ -13,7 +13,7 @@ services:
         HOST_UID: ${HOST_UID}
     #user: "ubuntu"
     command: bash /work/docker/docker-entrypoint.sh
-    container_name: {{cookiecutter.project_name}}
+    container_name: {{cookiecutter.project_name}}-jupyterlab-tensorboard
     ports:
       - "${JUPYTER_PORT}:8888"
       - "${TFBOARD_PORT}:6006"
@@ -21,3 +21,31 @@ services:
       - .:/work
     env_file:
       - .env
+  {{cookiecutter.project_name}}-commuter:
+    # https://qiita.com/noko_qii/items/62a7f70fceb6153620f4
+    build:
+      context: '.'
+      dockerfile: 'docker/Dockerfile.commuter'
+    ports:
+      - "${COMMUTER_PORT}:4000"
+    network_mode: "bridge"
+    environment:
+      - NODE_ENV=production
+      - HOST=0.0.0.0
+      - COMMUTER_STORAGE_BACKEND=local
+      - COMMUTER_DISCOVERY_BACKEND=none
+      - COMMUTER_PORT=4000
+      - COMMUTER_LOCAL_STORAGE_BASEDIRECTORY=/work/notebook
+      # - COMMUTER_ES_HOST
+      # - COMMUTER_S3_BASE_PREFIX=outputs
+      # - COMMUTER_S3_PATH_DELIMITER="/"
+      # - COMMUTER_BUCKET=sagemaker-bucket001
+      # - COMMUTER_S3_KEY=<aws_access_key_id>
+      # - COMMUTER_S3_SECRET=<aws_secret_access_key>
+      # - COMMUTER_S3_ENDPOINT
+    volumes: 
+      # - /opt/commuter:/app/commuter
+      - ./notebook:/work/notebook
+    # restart: always
+    command: commuter
+    container_name: {{cookiecutter.project_name}}-commuter
